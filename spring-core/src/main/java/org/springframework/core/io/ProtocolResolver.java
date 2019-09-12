@@ -19,6 +19,8 @@ package org.springframework.core.io;
 import org.springframework.lang.Nullable;
 
 /**
+ * 用户自定义协议资源解决策略
+ * 作为DefaultResourceLoader的SPI，允许用户自定义资源加载协议，而不需要继承ResourceLoader的子类。
  * A resolution strategy for protocol-specific resource handles.
  *
  * <p>Used as an SPI for {@link DefaultResourceLoader}, allowing for

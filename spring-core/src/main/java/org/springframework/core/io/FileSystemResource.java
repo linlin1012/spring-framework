@@ -37,6 +37,9 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * 对java.io.File类型的资源的封装，只要与File打交道的，基本上与FileSystemResource也可以打交道。支持文件和URL的形式
+ * 实现WriteableResource接口，从Spring5.0开始，FileSystemResource使用NIO.2API进行读写交互
+ *
  * {@link Resource} implementation for {@code java.io.File} and
  * {@code java.nio.file.Path} handles with a file system target.
  * Supports resolution as a {@code File} and also as a {@code URL}.

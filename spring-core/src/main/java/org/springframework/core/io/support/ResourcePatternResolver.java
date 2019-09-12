@@ -22,6 +22,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 /**
+ * 对ResourceLoader的扩展
+ * ResourceLoader#getResource(String location)方法只能通过一个location返回一个Resource
+ * 当加载多个资源时只能重复调用
+ * ResourcePatternResolver支持根据指定的资源路径匹配模式每次返回多个Resource实例
+ *
  * Strategy interface for resolving a location pattern (for example,
  * an Ant-style path pattern) into Resource objects.
  *
