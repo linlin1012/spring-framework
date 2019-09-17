@@ -19,6 +19,8 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
+ * Bean 元对象持有的配置元素可以同个#getSource()方法获取
+ *
  * Interface to be implemented by bean metadata elements
  * that carry a configuration source object.
  *

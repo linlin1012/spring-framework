@@ -162,7 +162,7 @@ public abstract class StringUtils {
 	 * @see #hasLength(String)
 	 * @see Character#isWhitespace
 	 */
-	public static boolean hasText(@Nullable String str) {
+	public static boolean vhasText(@Nullable String str) {
 		return (str != null && !str.isEmpty() && containsText(str));
 	}
 

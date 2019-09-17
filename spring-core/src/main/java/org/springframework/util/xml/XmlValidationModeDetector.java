@@ -91,25 +91,32 @@ public class XmlValidationModeDetector {
 		// Peek into the file to look for DOCTYPE.
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 		try {
+			// 是否是DTD验证模式  默认是否  即默认是XSD验证模式
 			boolean isDtdValidated = false;
 			String content;
+			// 逐行读取xml文档内容
 			while ((content = reader.readLine()) != null) {
 				content = consumeCommentTokens(content);
+				// 如果是注释或者是空数据则跳过
 				if (this.inComment || !StringUtils.hasText(content)) {
 					continue;
 				}
+				// 如果包含DOCTYPE则为DTD模式
 				if (hasDoctype(content)) {
 					isDtdValidated = true;
 					break;
 				}
+				// 做校验，如果这一行有< 并且 < 后面跟着的是字母，则返回true
 				if (hasOpeningTag(content)) {
 					// End of meaningful data...
 					break;
 				}
 			}
+			// 返回指定的验证模式
 			return (isDtdValidated ? VALIDATION_DTD : VALIDATION_XSD);
 		}
 		catch (CharConversionException ex) {
+			// 出现CharConversionException异常直接返回 VALIDATION_AUTO
 			// Choked on some character encoding...
 			// Leave the decision up to the caller.
 			return VALIDATION_AUTO;
